@@ -1,0 +1,86 @@
+
+Since my project is a RESTful web service, it communicates from one application to another. Hence we will use Postman app to 
+test our data. You can download Postman from here: https://www.getpostman.com/
+
+Following are the testing instructions that you can follow to get the desired response(s):
+
+1. The port number is configured according to the environment variable set by your local machine OR port no. 3000, whichever is
+available. Incase you are unsure of your port number, after doing npm start in the project's directory terminal you'd be able 
+to see in the logs the port number on which the server is listening. In my case it was 3000, so for example purposes I'll use
+the same below.
+
+2. Postman has three elements that we will be changing to test our data. The first one is the HTTP Verb, the second is URL
+   and the third is the Body tag. In case of GET requests, Body tag is obviously inactive. For requests in the Body tag, I 
+   usually use the 'raw' form of data and choose 'JSON(application/json)' from the dropdown since our requests and responses 
+   have to be in JSON. After each of the following action, click SEND to see the result:
+   
+(a) Listing all registered users:
+    HTTP Verb: GET
+    URL: localhost:3000/users/
+    
+(b) Registering a new user:
+    HTTP Verb: POST
+    URL: localhost:3000/users/signup
+    Body tag:
+    {
+      "name": "yourname",               (optional field)
+      "email" : "youremail@domain.com", (required)
+      "password": "yourpassword"        (required)
+    }
+   
+(c) User login:
+    HTTP Verb: POST
+    URL: localhost:3000/users/login
+    Body tag:
+    {
+      "email" : "youremail@domain.com", (required)
+      "password": "yourpassword"        (required)
+    }
+    This request should return you a reponse. Make sure you store this token somewhere and use it for other operations.
+    Your token is going to be the point of authentication to verify that it is you only. The token invalidates after you 
+    logout and changes when you log in again.
+    
+(d) User update/modify information:
+    Please note that in this case, there is a constraint while updating. You can update only one attribute of user at one time.
+    For example, if you wish to update the name and password at the same time, you will update the name in a separate request
+    and password in another request. The _id, email and active_session attributes are non-editable since they are your unique
+    identifiers in different operations.
+    
+    For updating name - 
+    HTTP Verb: PATCH
+    URL: localhost:3000/users/
+    Body tag:
+    {
+      "token": "yourtoken", (required)
+      "name": "yourNewName" (required) 
+    }
+    
+    For updating password - 
+    HTTP Verb: PATCH
+    URL: localhost:3000/users/
+    Body tag:
+    {
+      "token": "yourtoken",         (required)
+      "password": "yourNewPassword" (required) 
+    }
+    
+ (e) Delete user:
+     The delete user operation has been made keeping in mind, the user's perspective. Suppose a registered user wishes to 
+     delete his/her profile then he can do it by logging in to the system and then deleting it.
+     HTTP Verb: DELETE
+     URL: localhost:3000/users/
+     Body tag:
+     {
+      "token": "yourtoken" (required)
+     }
+     
+ (f) User logout:
+     HTTP Verb: POST
+     URL: localhost:3000/users/logout/
+     Body tag:
+     {
+      "token": "yourtoken" (required)
+     }
+     
+ For the login, signup, delete, update and logout cases you can test the validation by putting incorrect/invalid data in the 
+ request.

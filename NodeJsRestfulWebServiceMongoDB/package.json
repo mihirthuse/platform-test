@@ -1,0 +1,39 @@
+{
+  "name": "nodejsmongodbrestfulwebservice",
+  "version": "1.0.0",
+  "description": "A Node.js RESTful Web Service Project using MongoDB Atlas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihirthuse/NodeJsRESTfulWebServiceMongoDB.git"
+  },
+  "keywords": [
+    "node",
+    "restful",
+    "api"
+  ],
+  "author": "Mihir Thuse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mihirthuse/NodeJsRESTfulWebServiceMongoDB/issues"
+  },
+  "homepage": "https://github.com/mihirthuse/NodeJsRESTfulWebServiceMongoDB#readme",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "hashmap": "^2.3.0",
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.1.0",
+    "morgan": "^1.9.0",
+    "save": "^2.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.4"
+  }
+}

@@ -1,0 +1,23 @@
+
+Given the scope of the project and its intent, I have tried to pack in as much as I can with respect to validations, listing
+information and token authentication. However this project definitely can be scaled by incorporating the following
+enhancements:
+
+1. Creating a web application that can communicate with the web service. This will help in translating the actual response 
+times when the data is loaded on html. It will also help in storing the user tokens in the browser at client-side, thereby
+giving a better insight on how token authentication works.
+
+2. This web service can be scaled such that it can be used both, by the user and the admin. More endpoints such as 
+getting the user by _id, name and other filters can be implemented to incorporate admin functions.
+
+3. User endpoints such as file upload, file delete and user information such as address, contact details can be added to enable
+accessing data based on different filters.
+
+4. In case of sensitive information being retrieved, JWT Route authentication method can be implemented. This method essentially
+validates whether the information being displayed is shown to a valid user. This feature can be useful in e-commerce web
+applications.
+
+
+There are many other enhancements that can be added to this project. Above are some of them that I feel are the most desirable
+ones.
+
